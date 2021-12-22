@@ -39,6 +39,7 @@ import (
 	pb "github.com/fatindeed/grpc-demo/routeguide"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/reflection"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -236,6 +237,7 @@ func main() {
 	}
 	grpcServer := grpc.NewServer(opts...)
 	pb.RegisterRouteGuideServer(grpcServer, newServer())
+	reflection.Register(grpcServer)
 	grpcServer.Serve(lis)
 }
 
