@@ -17,9 +17,9 @@ $ docker run --rm -t fatindeed/grpc-demo client --addr host.docker.internal:5005
 ## Using gRPCurl
 
 ```sh
-$ docker run fullstorydev/grpcurl -plaintext host.docker.internal:50052 list
+$ docker run --rm fullstorydev/grpcurl -plaintext host.docker.internal:50052 list
 grpc.reflection.v1alpha.ServerReflection
 routeguide.RouteGuide
-$ docker run fullstorydev/grpcurl -d '{"latitude": -460000000, "longitude": -1160000000}' \
+$ docker run --rm fullstorydev/grpcurl -d '{"latitude": -460000000, "longitude": -1160000000}' \
     -plaintext host.docker.internal:50052 routeguide.RouteGuide.GetFeature
 ```
